@@ -27,14 +27,22 @@ def BubbleSort(list):
 
 def SelectionSort(list):
 	print "Selection Sort"
+        print list
 	NumberOfSwitches = 0
 	NumberOfComparisons = 0
-	for i in xrange(len(list)-1):
-		minElement = list[x]
-		for x in xrange(len(list)-1):
-		
-			
+	for i in xrange(len(list)):
+                minElementIndex = i
+		for x in xrange(i+1,len(list)):
+                    NumberOfComparisons += 1
+                    if list[minElementIndex] > list[x]:
+                        minElementIndex = x
+                NumberOfSwitches += 1
+                print "switch %s and %s" % ((list[i],list[minElementIndex]))
+                list[minElementIndex],list[i] = list[i],list[minElementIndex]
+        return list
+                    
 unsortedList = CreateUnsortedList(10)
 print unsortedList
 print BubbleSort(unsortedList)
 print BubbleSort([1,2,3,4,9,5,6,7,8,10])
+print SelectionSort([12,13,1,5,12,16,29,1,2,3,4,8,9])
