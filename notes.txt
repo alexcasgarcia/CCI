@@ -10,3 +10,4 @@ What is the difference between a tuple and a list?
  - Tuples have structure, lists have order
 
 
+What is the cost of a list append?
