@@ -1,12 +1,14 @@
-def p(string):
-    length=len(string)
-    if (length<=1):
-        return string 
-    else:
-        for x in xrange(length):
-            print string+":"+str(x)
-            print "  "+ string[x:x+1]+" p("+string[0:x]+","+string[x+1:]+")"
-            string[x:x+1]+p(string[0:x]+string[x+1:])
+def permutation(s):
+    if len(s) ==1:
+        return [s]
 
-string='ABCDE'
-print p(string)
+    perm_list = []
+    for a in s:
+        remaining_elements = [x for x in s if x != a]
+        z = permutation(remaining_elements)
+
+        for t in z:
+            perm_list.append([a] + t)
+    return perm_list
+
+print str(permutation('ABC'))
